@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Div = styled.div`
   background: white;
-  background-image: url(${props => props.backgroundImage});
+  background-image: url('${props => props.backgroundImage}');
   background-repeat: no-repeat;
   display: ${props => props.display};
   position: ${props => props.position};
