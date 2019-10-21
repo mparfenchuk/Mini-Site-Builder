@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { getElementsInContainer } from '../../app/redux/selectors';
+import { getElementsInContainer } from '@app/redux/selectors';
 
-import { Alert } from '../../app/App.styled';
+import { Alert } from '@app/App.styled';
 import { Wrapper } from './View.styled';
 
 import Element from './components/Element';

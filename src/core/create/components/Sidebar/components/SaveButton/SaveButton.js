@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { saveAs } from 'file-saver';
 
-import { Button } from '../../../../../../app/App.styled';
+import { Button } from '@app/App.styled';
 
 const SaveButton = () => {
   const state = useSelector(state => state);

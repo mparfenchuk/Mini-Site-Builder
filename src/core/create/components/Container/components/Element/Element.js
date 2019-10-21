@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getElementById } from '../../../../../../app/redux/selectors';
+import { getElementById } from '@app/redux/selectors';
 
 import Button from './components/Button';
 import Paragraph from './components/Paragraph';

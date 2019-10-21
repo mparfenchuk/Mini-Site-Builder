@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { Title } from '../../../../app/App.styled';
+import { Title } from '@app/App.styled';
 import { Wrapper, Grow, Divider, LinkButton  } from './Sidebar.styled';
 
 import ElementButton from './components/ElementButton';
@@ -9,7 +9,7 @@ import UploadButton from './components/UploadButton';
 import SaveButton from './components/SaveButton';
 import ResetButton from './components/ResetButton';
 
-import elementsList from '../../../../utils/elementsList';
+import elementsList from '@utils/elementsList';
 
 const Sidebar = ({ onDragStart }) => {
   const history = useHistory();

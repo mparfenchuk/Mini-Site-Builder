@@ -1,19 +1,21 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Formik, Field } from 'formik';
 
-import { getSelectedElement, getSelectedFromContainerId } from '../../../../app/redux/selectors';
-import { removeElement, removeElementFromContainer, unselectElement, setElementProperties } from '../../../../app/redux/actions';
+import { getSelectedElement, getSelectedFromContainerId } from '@app/redux/selectors';
+import { removeElement, removeElementFromContainer, unselectElement, setElementProperties } from '@app/redux/actions';
 
-import { pProperties, buttonProperties, divProperties, h1Properties } from '../../../../utils/elementsProperties';
+import { Alert, Title } from '@app/App.styled';
+import { Wrapper, ButtonsWrapper, Button } from './Form.styled';
 
-import { Alert, Title } from '../../../../app/App.styled';
-import { Wrapper, ButtonsWrapper, Button, SubmitButton, StyledForm, InputGroup, Input, Label } from './Form.styled';
+import ButtonForm from './components/ButtonForm';
+import DivForm from './components/DivForm';
+import H1Form from './components/H1Form';
+import ParagraphForm from './components/ParagraphForm';
 
 const Form = () => {
   const selectedElement = useSelector(getSelectedElement)
   const selectedFromContainerId = useSelector(getSelectedFromContainerId)
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const submit = (values, actions) => {
     dispatch(setElementProperties(selectedElement.id, values))
@@ -38,13 +40,6 @@ const Form = () => {
 
   const unselect = () => dispatch(unselectElement());
 
-  const selectedProperties = selectedElement && (
-    selectedElement.type === 'button' ? buttonProperties :
-    selectedElement.type === 'div' ? divProperties :
-    selectedElement.type === 'h1' ? h1Properties :
-    selectedElement.type === 'p' ? pProperties 
-    : {});
-
   return (
     <Wrapper>
       <Title>
@@ -52,32 +47,30 @@ const Form = () => {
       </Title>
       {selectedElement ? 
         <>
-          <Formik
-            initialValues={{ 
-              ...selectedProperties,
-              ...selectedElement.properties
-            }}
-            onSubmit={submit}
-            render={({ isSubmitting, isValid }) => (
-              <StyledForm autoComplete="off">
-                {Object.keys(selectedProperties).map(key => 
-                  <Field key={key} name={key} render={({ field }) => (
-                    <InputGroup>
-                      <Label>
-                        {key}:
-                      </Label>
-                      <Input type="text" {...field} />
-                    </InputGroup>
-                  )}/>)}
-                <SubmitButton 
-                  type="submit"
-                  disabled={!isValid || isSubmitting}
-                >
-                  Save
-                </SubmitButton>
-              </StyledForm>
-            )}
-          />
+          {selectedElement.type === 'button' && 
+            <ButtonForm 
+              submit={submit}
+              selectedProperties={selectedElement.properties 
+                ? selectedElement.properties : {}}
+            />}
+          {selectedElement.type === 'div' && 
+            <DivForm 
+              submit={submit}
+              selectedProperties={selectedElement.properties 
+                ? selectedElement.properties : {}}
+            />}
+          {selectedElement.type === 'h1' && 
+            <H1Form 
+              submit={submit}
+              selectedProperties={selectedElement.properties 
+                ? selectedElement.properties : {}}
+            />}
+          {selectedElement.type === 'p' && 
+            <ParagraphForm 
+              submit={submit}
+              selectedProperties={selectedElement.properties 
+                ? selectedElement.properties : {}}
+            />}
           <ButtonsWrapper>
             <Button onClick={unselect}>
               Unselect

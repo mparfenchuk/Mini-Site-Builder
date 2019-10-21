@@ -2,9 +2,9 @@ import React, {useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
 import { useDispatch } from 'react-redux';
 
-import { uploadProject } from '../../../../../../app/redux/actions';
+import { uploadProject } from '@app/redux/actions';
 
-import { Button } from '../../../../../../app/App.styled';
+import { Button } from '@app/App.styled';
 
 const UploadButton = () => {
   const dispatch = useDispatch()

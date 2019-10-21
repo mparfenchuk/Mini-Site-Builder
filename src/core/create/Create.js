@@ -4,9 +4,9 @@ import { useDispatch } from 'react-redux';
 import { 
   addElement, addElementAsChild, selectElement,
   addChild, moveChild, moveChildToContainer 
-} from '../../app/redux/actions';
+} from '@app/redux/actions';
 
-import createElement from '../../utils/createElement';
+import createElement from '@utils/createElement';
 
 import { Wrapper, MainArea } from './Create.styled';
 
