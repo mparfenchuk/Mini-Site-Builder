@@ -50,26 +50,22 @@ const Form = () => {
           {selectedElement.type === 'button' && 
             <ButtonForm 
               submit={submit}
-              selectedProperties={selectedElement.properties 
-                ? selectedElement.properties : {}}
+              selectedProperties={selectedElement.properties}
             />}
           {selectedElement.type === 'div' && 
             <DivForm 
               submit={submit}
-              selectedProperties={selectedElement.properties 
-                ? selectedElement.properties : {}}
+              selectedProperties={selectedElement.properties}
             />}
           {selectedElement.type === 'h1' && 
             <H1Form 
               submit={submit}
-              selectedProperties={selectedElement.properties 
-                ? selectedElement.properties : {}}
+              selectedProperties={selectedElement.properties}
             />}
           {selectedElement.type === 'p' && 
             <ParagraphForm 
               submit={submit}
-              selectedProperties={selectedElement.properties 
-                ? selectedElement.properties : {}}
+              selectedProperties={selectedElement.properties}
             />}
           <ButtonsWrapper>
             <Button onClick={unselect}>
