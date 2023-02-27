@@ -4,4 +4,4 @@ Simple mini site builder created with React.js. There is sidebar with draggable 
 * be careful, there is no validation for file;
 * use url for background-image.
 
-Live: [nparfen.github.io/mini-site-builder](https://nparfen.github.io/mini-site-builder)
+Live: [mparfenchuk.github.io/mini-site-builder](https://mparfenchuk.github.io/mini-site-builder)
